@@ -5,6 +5,36 @@
     <meta charset="UTF-8">
     <title>📡 1500 Site Rollout Dashboard (Interactive)</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .graph-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .graph-item {
+            width: calc(50% - 10px);
+            position: relative;
+        }
+        .caption {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .tooltip {
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            background-color: rgba(50,50,50,0.85);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .graph-item:hover .tooltip {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -26,35 +56,58 @@
         </select>
     </div>
 
-    <section>
-        <h2>📊 Site Distribution & Progress</h2>
-        <img src="assets/site_type_distribution.png" alt="Site Status Distribution" width="500">
-        <img src="assets/project_type_pie.png" alt="Progress by Project Type" width="500">
-    </section>
-
-    <section>
-        <h2>⚙️ Supply Chain & Permit</h2>
-        <img src="assets/rfi_rfs_progress.png" alt="Permit vs Supply Chain Progress" width="1000">
-    </section>
-
-    <section>
-        <h2>📈 Issue & Problem Status</h2>
-        <img src="assets/issue_status.png" alt="Issue Status">
-        <img src="assets/issue_problem_status.png" alt="Issue Problem Status">
-        <img src="assets/issue_trend.png" alt="Issue Trend">
-    </section>
-
-    <section>
-        <h2>📆 Timeline & Performance</h2>
-        <img src="assets/weekly_monthly_status.png" alt="Weekly and Monthly Status">
-        <img src="assets/monthly_achievement.png" alt="Monthly Achievement">
-        <img src="assets/project_performance.png" alt="Project Performance">
-    </section>
-
-    <section>
-        <h2>💰 Budget & Forecast</h2>
-        <img src="assets/budget_forecast.png" alt="Budget Forecast">
-    </section>
+    <div class="graph-grid">
+        <div class="graph-item" data-month="all">
+            <img src="assets/site_type_distribution.png" width="400">
+            <div class="tooltip">Shows proportion of sites by type (e.g., New, Upgrade).</div>
+            <div class="caption">📊 Site Type Distribution</div>
+        </div>
+        <div class="graph-item" data-month="all">
+            <img src="assets/project_type_pie.png" width="400">
+            <div class="tooltip">Displays execution breakdown per project type.</div>
+            <div class="caption">📊 Project Type Pie Chart</div>
+        </div>
+        <div class="graph-item" data-month="all">
+            <img src="assets/rfi_rfs_progress.png" width="400">
+            <div class="tooltip">Compares RFI readiness vs actual RFS progress.</div>
+            <div class="caption">⚙️ Permit vs Supply Chain</div>
+        </div>
+        <div class="graph-item" data-month="all">
+            <img src="assets/issue_status.png" width="400">
+            <div class="tooltip">Summary of open/closed issues.</div>
+            <div class="caption">🚨 Issue Status</div>
+        </div>
+        <div class="graph-item" data-month="all">
+            <img src="assets/issue_problem_status.png" width="400">
+            <div class="tooltip">Categorized issue root causes.</div>
+            <div class="caption">🧩 Problem Categories</div>
+        </div>
+        <div class="graph-item" data-month="jul">
+            <img src="assets/issue_trend.png" width="400">
+            <div class="tooltip">Issue trend evolution by week.</div>
+            <div class="caption">📈 Issue Trend</div>
+        </div>
+        <div class="graph-item" data-month="aug">
+            <img src="assets/weekly_monthly_status.png" width="400">
+            <div class="tooltip">Weekly and Monthly Status vs Plan</div>
+            <div class="caption">📆 Weekly/Monthly Target vs Actual</div>
+        </div>
+        <div class="graph-item" data-month="aug">
+            <img src="assets/monthly_achievement.png" width="400">
+            <div class="tooltip">Performance achievement per month.</div>
+            <div class="caption">🎯 Monthly Achievement</div>
+        </div>
+        <div class="graph-item" data-month="sep">
+            <img src="assets/project_performance.png" width="400">
+            <div class="tooltip">Aggregated project performance indicator.</div>
+            <div class="caption">📊 Project Performance</div>
+        </div>
+        <div class="graph-item" data-month="sep">
+            <img src="assets/budget_forecast.png" width="400">
+            <div class="tooltip">Forecasted vs spent budget analysis.</div>
+            <div class="caption">💰 Budget Forecast</div>
+        </div>
+    </div>
 
     <footer>
         <p>©milzon__2025</p>
@@ -87,6 +140,3 @@
 
 </body>
 </html>
-<footer>
-        <p>©milzon__2025</p>
-    </footer>
