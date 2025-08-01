@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 20px auto;
@@ -42,12 +43,70 @@ section h2 {
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    margin: 10px 0;
+    width: 400px;
+    height: 300px;
+    object-fit: contain;
+    margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.03);
+}
+
+.graph-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.graph-grid img {
+    flex: 1 0 calc(50% - 20px);
+}
+
+.caption {
+    display: block;
+    background-color: #f1f8e9;
+    border-left: 4px solid #cddc39;
+    padding: 8px 12px;
+    margin: 5px 0 15px;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 500;
+    color: #33691e;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 20px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.85rem;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+.download-btn:hover {
+    background-color: #1976D2;
 }
 
 footer {
