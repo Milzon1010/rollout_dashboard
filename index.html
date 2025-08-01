@@ -3,110 +3,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>1500 Site Rollout Dashboard</title>
+    <title>📡 1500 Site Rollout Dashboard (Interactive)</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .progress-bar {
-            width: 100%;
-            background-color: #eee;
-            border-radius: 5px;
-            margin: 5px 0 15px;
-        }
-        .progress {
-            height: 20px;
-            background-color: #4CAF50;
-            text-align: center;
-            color: white;
-            border-radius: 5px;
-        }
-        .download-btn {
-            padding: 10px 20px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            margin-top: 30px;
-            cursor: pointer;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f7f7f7;
-        }
-        section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-    </style>
 </head>
 <body>
     <div class="header">
-        <h1>📡 1500 Site Rollout Dashboard (Simulation)</h1>
+        <h1>📡 1500 Site Rollout Dashboard (Interactive)</h1>
         <p><strong>Region:</strong> Sumatera<br>
            <strong>Project Scope:</strong> New RBS, Microwave, Dismantle, Upgrade, Relocation, Tower Collocation<br>
            <strong>Simulation Target:</strong> 1500 Sites<br>
            <strong>Duration:</strong> 6 Months</p>
+        
+    <label for="monthFilter"><strong>Filter by Month:</strong></label>
+    <input type="range" id="monthSlider" min="1" max="3" value="0" oninput="updateSliderLabel(this.value)" onchange="filterBySlider(this.value)" style="width:200px;">
+    <span id="sliderLabel">All</span>
+    
+        <select id="monthFilter" onchange="filterCharts()">
+            <option value="all">All</option>
+            <option value="jul">July</option>
+            <option value="aug">August</option>
+            <option value="sep">September</option>
+        </select>
     </div>
 
     <section>
-        <h2>📊 Site Distribution & Progress ✅</h2>
+        <h2>📊 Site Distribution & Progress</h2>
         <img src="assets/site_type_distribution.png" alt="Site Status Distribution" width="500">
-        <p><em>📌 Site Status Distribution:</em> Menunjukkan proporsi site berdasarkan tipe proyek (New, Upgrade, Dismantle, Relocation, dll) sehingga manajemen bisa melihat beban kerja tiap kategori rollout.</p>
-        <div class="progress-bar"><div class="progress" style="width: 80%;">80%</div></div>
-
         <img src="assets/project_type_pie.png" alt="Progress by Project Type" width="500">
-        <p><em>📌 Project Type Progress:</em> Pie chart ini menunjukkan kontribusi progres dari masing-masing tipe proyek. Insight ini membantu mengalokasikan resource berdasarkan volume kerja terbanyak.</p>
-        <div class="progress-bar"><div class="progress" style="width: 75%;">75%</div></div>
     </section>
 
     <section>
-        <h2>⚙️ Supply Chain & Permit ⚠️</h2>
+        <h2>⚙️ Supply Chain & Permit</h2>
         <img src="assets/rfi_rfs_progress.png" alt="Permit vs Supply Chain Progress" width="1000">
-        <p><em>📌 Permit vs Supply Chain Progress:</em> Membandingkan antara kesiapan dokumen legal seperti RFI dan RFS dengan ketersediaan material dan logistic site. Grafik ini membantu mendeteksi bottleneck antara administratif dan teknikal.</p>
-        <div class="progress-bar"><div class="progress" style="width: 60%; background-color: #FF9800;">60%</div></div>
     </section>
 
     <section>
-        <h2>📈 Issue & Problem Status ❌</h2>
+        <h2>📈 Issue & Problem Status</h2>
         <img src="assets/issue_status.png" alt="Issue Status">
-        <p><em>📌 Issue Status:</em> Menampilkan persentase site yang memiliki kendala dibandingkan yang berjalan normal. Ini memberikan indikator kesehatan proyek secara real-time.</p>
-        <div class="progress-bar"><div class="progress" style="width: 30%; background-color: #f44336;">30%</div></div>
-
         <img src="assets/issue_problem_status.png" alt="Issue Problem Status">
-        <p><em>📌 Issue Problem Status:</em> Rincian tipe masalah paling dominan seperti keterlambatan vendor, masalah transportasi, atau perizinan. Grafik ini mendukung tindakan perbaikan yang lebih cepat dan tepat.</p>
-
         <img src="assets/issue_trend.png" alt="Issue Trend">
-        <p><em>📌 Issue Trend:</em> Memperlihatkan tren jumlah issue per minggu. Bila tren meningkat, ini merupakan early warning bagi project manager untuk melakukan mitigasi eskalasi lebih lanjut.</p>
     </section>
 
     <section>
-        <h2>📆 Timeline & Performance ✅</h2>
+        <h2>📆 Timeline & Performance</h2>
         <img src="assets/weekly_monthly_status.png" alt="Weekly and Monthly Status">
-        <p><em>📌 Weekly and Monthly Status:</em> Melacak progres mingguan dan bulanan terhadap rencana. Cocok untuk evaluasi mingguan dengan tim lapangan.</p>
-
         <img src="assets/monthly_achievement.png" alt="Monthly Achievement">
-        <p><em>📌 Monthly Achievement:</em> Memperlihatkan performa bulanan terhadap milestone target. Penting untuk pelaporan ke manajemen atau steering committee.</p>
-
         <img src="assets/project_performance.png" alt="Project Performance">
-        <p><em>📌 Project Performance:</em> Indikator komprehensif dari performa proyek: jumlah site selesai, site tertunda, dan progres RFS.</p>
     </section>
 
     <section>
-        <h2>💰 Budget & Forecast ⚠️</h2>
+        <h2>💰 Budget & Forecast</h2>
         <img src="assets/budget_forecast.png" alt="Budget Forecast">
-        <p><em>📌 Budget Forecast:</em> Simulasi antara pengeluaran aktual dan estimasi. Cocok untuk proyeksi cashflow dan deteksi potensi cost overrun di akhir proyek.</p>
-        <div class="progress-bar"><div class="progress" style="width: 55%; background-color: #FF9800;">55%</div></div>
-    </section>
-
-    <section>
-        <button class="download-btn" onclick="window.print()">📥 Download PDF Report</button>
     </section>
 
     <footer>
         <p>©milzon__2025</p>
     </footer>
+
+    <script>
+        function filterCharts() {
+            const selected = document.getElementById('monthFilter').value;
+            const charts = document.querySelectorAll('.graph-item');
+            charts.forEach(chart => {
+                if (selected === 'all' || chart.dataset.month === selected || chart.dataset.month === 'all') {
+                    chart.style.display = 'block';
+                } else {
+                    chart.style.display = 'none';
+                }
+            });
+        }
+    
+        function updateSliderLabel(val) {
+            const map = {0: "All", 1: "Jul", 2: "Aug", 3: "Sep"};
+            document.getElementById("sliderLabel").innerText = map[val];
+        }
+
+        function filterBySlider(val) {
+            const map = {0: "all", 1: "jul", 2: "aug", 3: "sep"};
+            document.getElementById("monthFilter").value = map[val];
+            filterCharts();
+        }
+    </script>
+
 </body>
 </html>
+<footer>
+        <p>©milzon__2025</p>
+    </footer>
+    <script>
